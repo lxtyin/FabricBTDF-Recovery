@@ -11,30 +11,30 @@ Project homepage: https://wangningbei.github.io/2024/FabricBTDF.html
 The project's directory structure is as follows:
 
 ```
-checkpoint/								- Saving trained network.
-|	model.pth							- The network our paper used.
-maps/									- Spatially-varying maps of each pattern.
-|	plain/								- First layer of plain.
-|	|	centerUV.exr
-|	|	id.exr
-|	|	...
-|	plain_back/							- Second layer of plain.
-|	...									- Other patterns.
-optimized/								- Saving optimized results.
-target/									- Real captured fabric photos.
-|	satin1_R.png						- Reflection photo of satin1.
-|	satin1_T.png						- Transmission photo of satin1.
-|	...
-gendataset.py							- Script to generate synthetic dataset.
-model.py								- Code of our network.
-noise.py								- Noise functions.
-optimize.py								- Script to optimize parameters using differentiable rendering.
-render.py								- Code for rendering the fabric plane using our BSDF.
-sggx.py									- SGGX functions.
-train.py								- Script to train the network.
-utils.py								- Utils functions (image, vector operators, et al.)
-requirements.txt						- Environment requirements file.
-Readme.md								- Here!
+checkpoint/							- Saving trained network.
+|   model.pth						- The network our paper used.
+maps/								- Spatially-varying maps of each pattern.
+|   plain/							- First layer of plain.
+|   |   centerUV.exr
+|   |   id.exr
+|   |   ...
+|   plain_back/						- Second layer of plain.
+|   ...								- Other patterns.
+optimized/							- Saving optimized results.
+target/								- Real captured fabric photos.
+|   satin1_R.png					- Reflection photo of satin1.
+|   satin1_T.png					- Transmission photo of satin1.
+|   ...
+gendataset.py						- Script to generate synthetic dataset.
+model.py							- Code of our network.
+noise.py							- Noise functions.
+optimize.py							- Script to optimize parameters using differentiable rendering.
+render.py							- Code for rendering the fabric plane using our BSDF.
+sggx.py								- SGGX functions.
+train.py							- Script to train the network.
+utils.py							- Utils functions (image, vector operators, et al.)
+requirements.txt					- Environment requirements file.
+Readme.md							- Here!
 ```
 
 
@@ -81,6 +81,8 @@ More render settings can be modified in the head of `render.py`. **Note that the
 
 ### Recovery
 
+Please download our pre-trained network from [here](https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81MjBjMTQ3MmI1YjcwYmJlL0VRQnY4dnpodEYxTmhjY2JjV05JdlNjQlBwNnlrMmRrcFNzRDREOXFUTTJRWWc%5FZT1jSmg1aU4&cid=520C1472B5B70BBE&id=520C1472B5B70BBE%21sfcf26f00b4e14d5d85c71b716348bd27&parId=root&o=OneUp) and place it at `checkpoint/model.pth`
+
 Our method recovers fabric parameters from a reflection-transmission photo pair. It contains two passes: initialize the parameters using network prediction and further optimize the parameters using differentiable rendering.
 
 Here's an example command to start the recovery pipeline, including both network prediction and optimization:
@@ -93,7 +95,7 @@ where `--targetT` indicates the captured transmission photo and `--targetR` indi
 
 `--init` indicates the initialization method. There are three types of them:
 
-- Deliver a network path starting with `checkpoint/` for network initialization. We provided a pre-trained network `checkpoint/model.pth`.
+- Deliver a network path starting with `checkpoint/` for network initialization.
 - Deliver a pattern name (can only be `plain`, `satin0`, `satin1`, `twill0`, or `twill1`) for random initialization using the prior of specified pattern.
 - Deliver detailed initial parameters string (e.g. `"twill1_R_0.6,0.66_S_0.75,1.53_T_1.33,0.39_N_0.0_UV_121.8,168.9_Kd_0.456,0.398,0.089,0.286,0.279,0.0_G_0.99,1.0_Rm_0.65,0.62_Tm_2.66,0.79_W_0.71,1.29_Ks_0.325,0.37,0.0,0.351,0.883,0.0_Psi_-30.5,-29.5"`).
 
