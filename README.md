@@ -1,4 +1,4 @@
-### Overview
+## Overview
 
 Here is the code of our paper: **Woven Fabric Capture with a Reflection-Transmission Photo Pair [SIGGRAPH 2024, Conference]**.
 
@@ -6,7 +6,7 @@ Project homepage: https://wangningbei.github.io/2024/FabricBTDF.html
 
 
 
-### Contents
+## Contents
 
 The project's directory structure is as follows:
 
@@ -22,8 +22,8 @@ maps/									- Spatially-varying maps of each pattern.
 |	...									- Other patterns.
 optimized/								- Saving optimized results.
 target/									- Real captured fabric photos.
-|	satin1_R.exr						- Reflection photo of satin1.
-|	satin1_T.exr						- Transmission photo of satin1.
+|	satin1_R.png						- Reflection photo of satin1.
+|	satin1_T.png						- Transmission photo of satin1.
 |	...
 gendataset.py							- Script to generate synthetic dataset.
 model.py								- Code of our network.
@@ -39,7 +39,7 @@ Readme.md								- Here!
 
 
 
-### Environment
+## Environment
 
 Use the following commands to set up the environment:
 
@@ -55,9 +55,9 @@ Other versions of torch may work as well, but they have not been fully tested.
 
 
 
-### Usage
+## Usage
 
-#### Rendering
+### Rendering
 
 Here's an example command to render the fabric plane using our BSDF:
 
@@ -79,7 +79,7 @@ More render settings can be modified in the head of `render.py`. **Note that the
 
 
 
-#### Recovery
+### Recovery
 
 Our method recovers fabric parameters from a reflection-transmission photo pair. It contains two passes: initialize the parameters using network prediction and further optimize the parameters using differentiable rendering.
 
@@ -101,9 +101,9 @@ Optimized parameters and rendered images will be saved in the folder indicated b
 
 
 
-#### Train
+### Train
 
-##### dataset
+#### dataset
 
 We use synthetic datasets to train the network. To render the dataset:
 
@@ -121,7 +121,7 @@ It will take about an hour (on NVIDIA 4060 Laptop GPU) to render 1280 samples pe
 
 
 
-##### training
+#### training
 
 Run the following command to train a network using the previous dataset:
 
@@ -135,7 +135,7 @@ Training took about four hours on a single A40 GPU. The trained network will be 
 
 
 
-### BibTex
+## BibTex
 
 Please cite our paper for any usage of our code in your work by:
 
