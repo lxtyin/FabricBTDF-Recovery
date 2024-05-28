@@ -41,17 +41,24 @@ Readme.md							- Here!
 
 ## Environment
 
-Use the following commands to set up the environment:
+1. Clone this repository:
 
-```bash
-cd <project directory>
-conda create -n fabricBTDF python=3.9
-conda activate fabricBTDF
-pip install torch==2.0.0+cu118 torchvision==0.15.0+cu118 -f https://download.pytorch.org/whl/torch_stable.html
-pip install -r requirements.txt
-```
+   ```bash
+   git clone https://github.com/lxtyin/FabricBTDF-Recovery.git
+   ```
 
-Other versions of torch may work as well, but they have not been fully tested.
+2. Download our pre-trained network from [here](https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81MjBjMTQ3MmI1YjcwYmJlL0VRQnY4dnpodEYxTmhjY2JjV05JdlNjQlBwNnlrMmRrcFNzRDREOXFUTTJRWWc%5FZT1jSmg1aU4&cid=520C1472B5B70BBE&id=520C1472B5B70BBE%21sfcf26f00b4e14d5d85c71b716348bd27&parId=root&o=OneUp) and place it at `checkpoint/model.pth`
+
+3. Use the following commands to set up the environment:
+
+   ```bash
+   cd <project directory>
+   conda create -n fabricBTDF python=3.9
+   conda activate fabricBTDF
+   pip install torch==2.0.0+cu118 torchvision==0.15.0+cu118 -f    https://download.pytorch.org/whl/torch_stable.html
+   pip install -r requirements.txt
+   ```
+   Other versions of torch may work as well, but they have not been fully tested.
 
 
 
@@ -80,8 +87,6 @@ More render settings can be modified in the head of `render.py`. **Note that the
 
 
 ### Recovery
-
-Please download our pre-trained network from [here](https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81MjBjMTQ3MmI1YjcwYmJlL0VRQnY4dnpodEYxTmhjY2JjV05JdlNjQlBwNnlrMmRrcFNzRDREOXFUTTJRWWc%5FZT1jSmg1aU4&cid=520C1472B5B70BBE&id=520C1472B5B70BBE%21sfcf26f00b4e14d5d85c71b716348bd27&parId=root&o=OneUp) and place it at `checkpoint/model.pth`
 
 Our method recovers fabric parameters from a reflection-transmission photo pair. It contains two passes: initialize the parameters using network prediction and further optimize the parameters using differentiable rendering.
 
