@@ -106,6 +106,7 @@ where `--targetT` indicates the captured transmission photo and `--targetR` indi
 
 Optimized parameters and rendered images will be saved in the folder indicated by the `--save` option.
 
+Optimizing took about 4 minutes on an NVIDIA 4060 GPU.
 
 
 ### Train
