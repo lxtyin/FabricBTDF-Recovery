@@ -47,7 +47,7 @@ Readme.md							- Here!
    git clone https://github.com/lxtyin/FabricBTDF-Recovery.git
    ```
 
-2. Download our pre-trained network from [here](https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81MjBjMTQ3MmI1YjcwYmJlL0VRQnY4dnpodEYxTmhjY2JjV05JdlNjQlBwNnlrMmRrcFNzRDREOXFUTTJRWWc%5FZT1jSmg1aU4&cid=520C1472B5B70BBE&id=520C1472B5B70BBE%21sfcf26f00b4e14d5d85c71b716348bd27&parId=root&o=OneUp) and place it at `checkpoint/model.pth`
+2. Download our pre-trained network from [here](https://1drv.ms/u/c/203BD9A799A92229/IQAruPeB8lrmTYqY6C2hczQOAQyMPQ1noBqgBF5QozrKEic?e=dqwIdB) and place it at `checkpoint/model.pth`
 
 3. Use the following commands to set up the environment:
 
